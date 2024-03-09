@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a serverless application I build with Cloudflare workers. This application has two deployed services
+This is a serverless application I build with Cloudflare workers. This application has two services
 
 1. api
 2. consumer
