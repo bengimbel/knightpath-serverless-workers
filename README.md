@@ -9,7 +9,7 @@ This is a serverless application I build with Cloudflare workers. This applicati
 
 The api handles the two requests required for this project, and pushes the coordinates to a queue. Once results are pushed to the queue, the consumer reads from the queue, calculates the shortest distance if possible, and then saves results to the database.
 
-### POST: https://api.bengimbel.workers.dev/knightPath?source=<source>&target=<target>
+### `POST: https://api.bengimbel.workers.dev/knightPath?source=<source>&target=<target>`
 
 1. This endpoint does validation on the request. If the query params are valid, the api endpoint handles the request by putting the coordinates in a queue.
 2. Once the coordinates are pushed to the queue, we return the operation id and the knight path coordiantes are handled async via the queue.
@@ -26,7 +26,7 @@ The api handles the two requests required for this project, and pushes the coord
 
 1. Once the coordiantes are pushed to the queue, the consumer reads the message from the queue, and calculates the shortest distance using BFS. Once the shortest distance is calculated, we save the results in Cloudflares D1 database.
 
-### GET: https://api.bengimbel.workers.dev/knightPath?operationId=<operationId>
+### `GET: https://api.bengimbel.workers.dev/knightPath?operationId=<operationId>`
 
 1. Once the queue handles the shortest distance, users can then make a `GET` request to the endpoint above to see the results of their `POST` request above. We query the database using the `operationId`.
 
