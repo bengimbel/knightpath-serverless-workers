@@ -12,6 +12,7 @@ The api handles the two requests required for this project, and pushes the coord
 ### API
 
 `POST: https://api.bengimbel.workers.dev/knightPath?source=<source>&target=<target>`
+EX: `POST` https://api.bengimbel.workers.dev/knightPath?source=h1&target=d4
 
 1. This endpoint does validation on the request. If the query params are valid, the api endpoint handles the request by putting the coordinates in a queue.
 2. Once the coordinates are pushed to the queue, we return the operation id and the knight path coordiantes are handled async via the queue.
@@ -25,6 +26,7 @@ The api handles the two requests required for this project, and pushes the coord
 ```
 
 `GET: https://api.bengimbel.workers.dev/knightPath?operationId=<operationId>`
+EX: `GET` https://api.bengimbel.workers.dev/knightPath?operationId=37227372-f082-4dd9-b102-8a7012d18f3c
 
 1. Once the queue handles the shortest distance, users can then make a `GET` request to the endpoint above to see the results of their `POST` request above. We query the database using the `operationId`.
 
