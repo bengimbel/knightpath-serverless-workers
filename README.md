@@ -1,4 +1,4 @@
-# Venteur Knight Path Project
+# Knight Path
 
 ## Description
 
